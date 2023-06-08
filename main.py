@@ -1,12 +1,13 @@
-from tkinter import *
+from tkinter import *                                                      #importing libraries
 import requests
 
-def get_quote():
-    response = requests.get("https://api.kanye.rest")
+def get_quote():                                                           #function to get request from kanye api and evertime
+    response = requests.get("https://api.kanye.rest")                      #we call it generate a quote
     response.raise_for_status()
     quote = response.json()
     canvas.itemconfig(quote_text,text = quote["quote"])
 
+#Making of UI in Tkinter
 window = Tk()
 window.title("Kanye Says...")
 window.config(padx=50, pady=50)
